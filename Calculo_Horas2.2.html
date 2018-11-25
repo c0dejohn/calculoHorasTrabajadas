@@ -15,56 +15,39 @@ function calcular(){
 			var sal=document.getElementById("sal").value=parseInt(document.getElementById("coop").value)
 			var pen=document.getElementById("pen").value=parseInt(document.getElementById("pen").value)
 			var sb=document.getElementById("sb").value=parseInt(document.getElementById("sb").value)
-			//-------------------------
-			
-				
-
-			 var vhn=document.getElementById("vhn").value=sb/240;
-
+			//---------------------------------------------------------------
+			var vhn=document.getElementById("vhn").value=sb/240;
 			var vhed=document.getElementById("vhed").value=vhn*1.25;
-
-			 var vhen=document.getElementById("vhen").value=vhn*1.50;
-			  
-			 var vhef=document.getElementById("vhef").value=vhn*1.75;
-
-			 var the=document.getElementById("the").value=(hed*vhed)+(hef*vhef)+(hen*vhen);
-	
+			var vhen=document.getElementById("vhen").value=vhn*1.50;  
+			var vhef=document.getElementById("vhef").value=vhn*1.75;
+			var the=document.getElementById("the").value=(hed*vhed)+(hef*vhef)+(hen*vhen);
+			
 			function subTransp(){
-				if(vhn*ht<1600000){
-						var subt=(78400/240)*ht;
-					}else{
-						var subt=0;
-						}
+						if(vhn*ht<1600000){
+							var subt=(78400/240)*ht;
+					   	 }else{
+						   	 var subt=0;
+						  	}
 					return subt;
-				}
+			}
 			var st=document.getElementById("st").value=subTransp();
-
 			var com=document.getElementById("com").value=(sb*1.8)/100;
 			var bon=document.getElementById("bon").value=(sb*3)/100;
-
-var odev=document.getElementById("odev").value=0;
-
-		
+			var odev=document.getElementById("odev").value=0;		
+			var td=document.getElementById("tdev").value= (vhn*ht+the + st+ bon+ com+ odev);
+			var sal= document.getElementById("sal").value=td*0.4;
+			var pen=document.getElementById("pen").value=td*0.6;
 			
-				
-		var td=document.getElementById("tdev").value= (vhn*ht+the + st+ bon+ com+ odev);
-
-
-		var sal= document.getElementById("sal").value=td*0.4;
-
-		var pen=document.getElementById("pen").value=td*0.6;
-
-		function retension(){
-				if(td>=1600000){
-					var rete=td*0.6;
-				}else{
-				var rete=0;
-				}
-			return rete;
-		}
-		var ret=document.getElementById("ret").value=retension();
-
-		function cooperativa(){
+			function retension(){
+						if(td>=1600000){
+							var rete=td*0.6;
+						}else{
+							 var rete=0;
+						     }return rete;
+			}
+			var ret=document.getElementById("ret").value=retension();
+		
+			function cooperativa(){
 				var coope = td*0.5;
 				if (coope>80000){
 				var coop2 =80000;
@@ -76,18 +59,18 @@ var odev=document.getElementById("odev").value=0;
 				}
 
 			var coop=document.getElementById("coop").value=cooperativa();	
-			}
-function limpiar(){
+		}
+	function limpiar(){
 
-			var sb=document.getElementById("sb").value="";
-			var ht=document.getElementById("ht").value=""
-			var hed=document.getElementById("hed").value=""
-			var hen=document.getElementById("hen").value=""
-			var hef=document.getElementById("hef").value=""
-			var sal=document.getElementById("sal").value=""
-			var pen=document.getElementById("pen").value=""
-			var sb=document.getElementById("sb").value=""
-//---------------------------------
+		var sb=document.getElementById("sb").value="";
+		var ht=document.getElementById("ht").value=""
+		var hed=document.getElementById("hed").value=""
+		var hen=document.getElementById("hen").value=""
+		var hef=document.getElementById("hef").value=""
+		var sal=document.getElementById("sal").value=""
+		var pen=document.getElementById("pen").value=""
+		var sb=document.getElementById("sb").value=""
+		//------------------------------------------------------------------------
 		var vhn=document.getElementById("vhn").value="";
 		var vhed=document.getElementById("vhed").value="";
 		var vhen=document.getElementById("vhen").value="";
@@ -102,7 +85,7 @@ function limpiar(){
 		var pen=document.getElementById("pen").value="";
 		var ret=document.getElementById("ret").value="";
 		var coop=document.getElementById("coop").value="";
-}
+	}
 			
 		</script>
 		<style>
