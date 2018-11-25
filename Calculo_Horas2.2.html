@@ -1,0 +1,243 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+		<script>
+			
+function calcular(){
+
+			var sb=document.getElementById("sb").value=parseInt(document.getElementById("sb").value)
+			var ht=document.getElementById("ht").value=parseInt(document.getElementById("ht").value)
+			var hed=document.getElementById("hed").value=parseInt(document.getElementById("hed").value)
+			var hen=document.getElementById("hen").value=parseInt(document.getElementById("hen").value)
+			var hef=document.getElementById("hef").value=parseInt(document.getElementById("hef").value)
+			var sal=document.getElementById("sal").value=parseInt(document.getElementById("coop").value)
+			var pen=document.getElementById("pen").value=parseInt(document.getElementById("pen").value)
+			var sb=document.getElementById("sb").value=parseInt(document.getElementById("sb").value)
+			//-------------------------
+			
+				
+
+			 var vhn=document.getElementById("vhn").value=sb/240;
+
+			var vhed=document.getElementById("vhed").value=vhn*1.25;
+
+			 var vhen=document.getElementById("vhen").value=vhn*1.50;
+			  
+			 var vhef=document.getElementById("vhef").value=vhn*1.75;
+
+			 var the=document.getElementById("the").value=(hed*vhed)+(hef*vhef)+(hen*vhen);
+	
+			function subTransp(){
+				if(vhn*ht<1600000){
+						var subt=(78400/240)*ht;
+					}else{
+						var subt=0;
+						}
+					return subt;
+				}
+			var st=document.getElementById("st").value=subTransp();
+
+			var com=document.getElementById("com").value=(sb*1.8)/100;
+			var bon=document.getElementById("bon").value=(sb*3)/100;
+
+var odev=document.getElementById("odev").value=0;
+
+		
+			
+				
+		var td=document.getElementById("tdev").value= (vhn*ht+the + st+ bon+ com+ odev);
+
+
+		var sal= document.getElementById("sal").value=td*0.4;
+
+		var pen=document.getElementById("pen").value=td*0.6;
+
+		function retension(){
+				if(td>=1600000){
+					var rete=td*0.6;
+				}else{
+				var rete=0;
+				}
+			return rete;
+		}
+		var ret=document.getElementById("ret").value=retension();
+
+		function cooperativa(){
+				var coope = td*0.5;
+				if (coope>80000){
+				var coop2 =80000;
+						}else{
+					var coop2=coop;
+					}
+				return coop2;
+
+				}
+
+			var coop=document.getElementById("coop").value=cooperativa();	
+			}
+function limpiar(){
+
+			var sb=document.getElementById("sb").value="";
+			var ht=document.getElementById("ht").value=""
+			var hed=document.getElementById("hed").value=""
+			var hen=document.getElementById("hen").value=""
+			var hef=document.getElementById("hef").value=""
+			var sal=document.getElementById("sal").value=""
+			var pen=document.getElementById("pen").value=""
+			var sb=document.getElementById("sb").value=""
+//---------------------------------
+		var vhn=document.getElementById("vhn").value="";
+		var vhed=document.getElementById("vhed").value="";
+		var vhen=document.getElementById("vhen").value="";
+		var vhef=document.getElementById("vhef").value="";
+		var the=document.getElementById("the").value="";
+		var st=document.getElementById("st").value="";
+		var com=document.getElementById("com").value="";
+		var bon=document.getElementById("bon").value="";
+		var odev=document.getElementById("odev").value="";
+		var td=document.getElementById("tdev").value="";
+		var sal= document.getElementById("sal").value="";
+		var pen=document.getElementById("pen").value="";
+		var ret=document.getElementById("ret").value="";
+		var coop=document.getElementById("coop").value="";
+}
+			
+		</script>
+		<style>
+		   body{
+			   background:#4966a3;
+		   }	
+		   table{
+			   margin:auto;
+			   margin-top:50px;
+			   width:400px;
+			   background:#caccaa;
+		   } tr td{ font-size:11px;}
+		   h4{
+			  font-family:arial;
+			  font-size:20px;
+		   }
+		   input{
+			   width:100%;
+			   height:25px;
+			   font-size:arial;
+			   font-size:11px;
+			   background:#4c4c4c;
+			   color:#fff;
+			   text-align:center;
+		   }
+		</style>
+	</head>	
+	<body>
+		<table>
+			<tbody><tr>
+				<td colspan="3">
+					<center><h4>Este Programa Calculara la Liquidación por Horas de un Trabajador</h4></center>
+				</td>
+			</tr>
+			<tr>	
+				<td>
+	              <table border="1">
+	                  <tbody><tr>
+			            <td colspan="2"><center><h4>Datos de un Trabajador</h4></center></td>
+	                  </tr>
+	                  <tr>
+			            <td>Salario Básico:</td>
+			            <td><input type="" id="sb" ></td>
+	                  </tr>
+	                  <tr>
+			            <td>Horas Trabajadas:</td>
+			            <td><input type="" id="ht"  ></td>
+	                  </tr>		    
+	                  <tr>
+			            <td>Horas Ext Diurnas:</td>
+			            <td><input type="" id="hed"  ></td>
+	                  </tr>		    
+	                  <tr>
+			            <td>Horas Ext Nocturnas:</td>
+			            <td><input type="" id="hen"  ></td>
+	                  </tr>	
+	                  <tr>
+			            <td>Horas Ext Festivas:</td>
+			            <td><input type="" id="hef" ></td>
+	                  </tr>		    				    	    		
+	        		  <tr>
+	        		    <td>Salud<input type="" id="sal"   disabled=""></td>
+	        		    <td>Pension<input type="" id="pen"   disabled=""></td>
+	        		  
+	        		  </tr>  	        		    
+	             </tbody></table>
+				</td>
+				<td>
+                  <table border="1">
+	                  <tbody><tr>
+			            <td colspan="2"><center><h4>Valor de Horas</h4></center></td>
+	                  </tr>
+	                  <tr>
+			            <td>Valor Hora Normal:</td>
+			            <td><input type="number" id="vhn"   disabled=""></td>
+	                  </tr>
+	                  <tr>
+			            <td>Valor Hora Ext Diurna:</td>
+			            <td><input type="" id="vhed"  o disabled=""></td>
+	                  </tr>		    
+	                  <tr>
+			            <td>Valor Hora Ext Nocturna:</td>
+			            <td><input type="" id="vhen"  disabled=""></td>
+	                  </tr>		    
+	                  <tr>
+			            <td>Horas Ext Festiva:</td>
+			            <td><input type="" id="vhef"   disabled=""></td>
+	                  </tr>	
+	                  <tr>
+			            <td>Total Horas Extras:</td>
+			            <td><input type="" id="the"   disabled=""></td>
+	                  </tr>		    				    	    		
+	        		  <tr>
+	        		    <td>Retencion<input type="" id="ret"  disabled=""></td>
+	        		    <td>Cooperativa<input type="" id="coop"  disabled=""></td>
+	        		  
+	        		  </tr>  
+	             </tbody></table>				   
+				</td>
+				<td>
+	             <table border="1">
+	                  <tbody><tr>
+			            <td colspan="2"><center><h4>Totales Liquidados</h4></center></td>
+	                  </tr>
+	                  <tr>
+			            <td>Subsidio Transporte:</td>
+			            <td><input type="" id="st"   disabled=""></td>
+	                  </tr>
+	                  <tr>
+			            <td>Bonificacion:</td>
+			            <td><input type="" id="bon"  ></td>
+	                  </tr>		    
+	                  <tr>
+			            <td>Comision:</td>
+			            <td><input type="" id="com"  ></td>
+	                  </tr>		    
+	                  <tr>
+			            <td>Otros Devengados:</td>
+			            <td><input type="" id="odev"  ></td>
+	                  </tr>	
+	                  <tr>
+			            <td>Total Devengado:</td>
+			            <td><input type="" id="tdev"   disabled=""></td>
+	                  </tr>		    				    	    		
+	                  <tr>
+			            <td>Acciones a realizar..<input type="button" id="Calcular" value="Calcular" onclick="calcular()"></td>
+			            <td>Acciones a realizar..<input type="button" id="limpiar" value="Limpiar" onclick="limpiar()"></td>
+	                  </tr>	
+                  	        		    
+	             </tbody></table>	
+				</td>
+			</tr>
+			
+		</tbody></table>
+	
+
+
+</body></html>
